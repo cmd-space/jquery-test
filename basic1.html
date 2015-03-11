@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="I'm writing this over and over so that I'll be well-versed to do this when I make websites following the recommended SEO guidelines and such">
+	<title>First "jQuery" assignment</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="basic1.css" />
+	<script>
+	$(document).ready(function(){
+		var vall;
+		// .addClass using italics from attached .css
+		$('h1').addClass('italics');
+		//.click assigns input value to a variable to .append value in body
+		$('#show-text').click(function(){
+			var vall = $('input').val();
+			$('#vall-var p').append(vall);
+			return vall;
+		});
+		function tog(){
+			$('hide-text').toggle();
+		}
+		//hide text created by above .append
+		$('#hide-text').click(function(tog()){//trying to call a function that creates a toggle to allow the button to show and hide the text, but that might not be possible at this point in time.
+			$('#vall-var').hide(1000);
+		});
+		
+	});
+	</script>
+</head>
+<body>
+	<h1>This shouldn't be italicized, but it is using .addClass</h1>
+	<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, aspernatur!</h2>
+	<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, impedit!</h3>
+	<div>
+		<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, recusandae.</h4>
+		<form><input type='text' value='type something here'></form><button id="show-text">submit</button><button id="hide-text">hide text</button>
+		<div id="vall-var"><p></p></div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, modi!</p>
+		<a href='http://www.youtube.com'>Fun and Educational Videos</a>
+	</div>
+</body>
+</html>
