@@ -14,32 +14,82 @@
 		// .addClass using italics from attached .css
 		$('h1').addClass('italics');
 		//.click assigns input value to a variable to .append value in body
-		$('#show-text').click(function(){
+		$('#submit-text').click(function(){
 			var vall = $('input').val();
 			$('#vall-var p').append(vall);
 			return vall;
 		});
-		function tog(){
-			$('hide-text').toggle();
-		}
 		//hide text created by above .append
-		$('#hide-text').click(function(tog()){//trying to call a function that creates a toggle to allow the button to show and hide the text, but that might not be possible at this point in time.
+		$('#hide-text').click(function(){
 			$('#vall-var').hide(1000);
 		});
-		
+		$('#show-text').click(function(){
+			$('#vall-var').show(500);
+		});
+		$('#tog').click(function(){
+			$('#vall-var').toggle(1000);
+		});
+		// on hover, .fadeOut the <a>, and .fadeIn once hover is finished
+		$('a').hover(function(){
+				$(this).fadeOut();}, 
+			function(){
+				$(this).fadeIn();});
+		$('h2').before('<a href="#">this is .before</a>');
+		$('h2').after('<p>this is .after</p>');
+		$('h3').text();
+		// $('h3').html($('h3').text + '<br>');
+		$('h3').append($('h3').text());
+		$('#disappear').click(function(){
+			var full_head = $('head').html();
+			var full_body = $('body').html();
+			$('body').html('<button id="renew">return to normal</button>');
+			$('#renew').click(function(){
+				$('head').html(full_head);
+				$('body').html(full_body);
+			});
+		});
+		$('form input').focus();
+		$('ul li').click(function(){
+			$(this).slideUp(1000);
+		});
+		$('#aint-funny p').click(function(){
+			$('#aint-funny img').slideToggle(1000);
+		});
+		$('#nod-button').click(function(){
+			$('#nod img').slideDown(2000);
+		});
+		$('a').attr('href', 'http://www.vimeo.com');
 	});
 	</script>
 </head>
 <body>
 	<h1>This shouldn't be italicized, but it is using .addClass</h1>
 	<h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, aspernatur!</h2>
-	<h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, impedit!</h3>
+	<h3>This text will repeat twice, due to the .text method</h3>
 	<div>
 		<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, recusandae.</h4>
-		<form><input type='text' value='type something here'></form><button id="show-text">submit</button><button id="hide-text">hide text</button>
+		<form><input type='text' value='this has .focus'></form><button id="submit-text">submit</button>
+		<button id="hide-text">hide text</button>
+		<button id="show-text">show text</button>
+		<button id='tog'>or just click this over and over</button>
 		<div id="vall-var"><p></p></div>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, modi!</p>
 		<a href='http://www.youtube.com'>Fun and Educational Videos</a>
+	</div>
+	<ul>
+		<li>These slide up when clicked.</li>
+		<li>These slide up when clicked.</li>
+		<li>These slide up when clicked.</li>
+		<li>These slide up when clicked.</li>
+		<li>These slide up when clicked.</li>
+		<li>These slide up when clicked.</li>
+	</ul>
+	<div id='aint-funny'>
+		<img src="It-aint-funny-GIF.gif" alt="laugh"><p>Click this text for some .slideToggle action!</p>
+	</div>
+	<div id='nod'>
+		<img src="nod.gif" alt="star trek nod"><button id='nod-button'>click me for the nod</button><br>
+		<button id='disappear'>click me to disappear</button>
 	</div>
 </body>
 </html>
